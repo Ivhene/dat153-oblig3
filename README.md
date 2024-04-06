@@ -1,28 +1,20 @@
-# dat153-oblig1
-Repository used for assignment 1 in dat153 at HVL
+# dat153-oblig3
+Repository used for assignment 3 in DAT153 at HVL, group 6
 
 ## The task
-### The Quiz app
-This little app should implement an easy game where you have to match names and photos (or a random selection of cute animal pictures). There are two core activities, which the user should be able to choose from when the application starts:
+We are going to make some improvements to our application! (Note that it is okay if you decide to throw away your old version and quickly re-do your app in a different style). Deadline: Monday, 15th April. Again, submit a link to your git repository as a group here in Canvas. You can start a new project from scratch if you like, it does not have to build on your Oblig 1.
 
-the "gallery": it shows all names & pictures, if necessary, letting the user scroll through the list. There should be buttons for adding a new entry, removing an existing entry (e.g. by clicking an image), and sorting all existing entries alphabetical order or reverse order (from A to Z or from Z to A).
-the "quiz": When users click on this activity, the app will randomly select a photo from the gallery, and shows it on the screen. The app should present the right name for the photo and two wrong names in random order, and the user has to select the one they think is correct. After submission, there should be an indication by the app if the name was correct or not. If not, the app should show the correct name. After that, the whole process repeats until the user decides to leave this activity. The app should keep track of the score (the number of correct answers vs all attempts) and show it on the screen during the quiz.
-The "gallery" has the "add entry"-functionality: Here the user can add a new entry (i.e., a pair of a photo and the associated name). Please allow the user to choose an existing photo from his/her phone or enable the user to take a photo using his/her camera (Please consider this an optional feature). The name/photo pair should then of course be available to the "gallery" and the "quiz".
+### Saving data
+Save your data (and load it when the app starts again later)! Decide on how you want store the data (names & pictures) that we add from the app. We'll use Android Room DAOsLinks to an external site. (also see Ch. 68 "An Android Room Database..." in Smyth's "Android studio 4. 0 development essentials"). Encapsulate the data necessary for the quiz (i.e. all images, the current image and correct answer and alternative wrong choices for the current question) in a subclass of a ViewModel. Make sure that when rotating your phone during a quiz the current question and score are not lost! (Room, LiveData ,and ViewModel for extra reading)Links to an external site.
 
-### Other remarks:
+### Write tests
+Write test-cases using Espresso for your app! At least have the following test cases: 
+clicking a button in the main-menu takes you to the right sub-activity (i.e. to the Quiz or the Database; testing one button is enough);
+is the score updated correctly in the quiz (submit right/wrong answer and check if the score is correct afterwards);
+a test that checks that the number of registered pictures/persons is correct after adding/deleting an entry. For adding, use Intent Stubbing to return some image data (e.g. from the resource-folder) without any user interaction.
+Write your Espresso test classes (in other words, do not use the Espresso Test Recorder) so that they directly address each activity under test. In other words, don't write all tests for the main activity and then have your test case click the main menu buttons to reach an activity. Note that you may have to change the structure of your app a bit so that you actually have access to internal state of your app (e.g., the score) from the unit test. 
 
-don't immediately try to use one of the fancy databases such as SQLite or Rooms! Use a simple datastructure from the Collections interface to maintain photos & names! Use the Application-class (see below) to share this datastructure throughout the app.
-add 3 photos and names to the app through the resource folder, and use it to initialize your database when the app starts! That is, load the image data and put it into your datastructure. (Make sure that the images are not too large, because it will also be in Git -- you can also of course use a cat-pic instead of your real face.)
-do not worry about persistently storing new entries (or the score) on the phone. We will add this functionality in the next oblig, for now it is okay if your app "forgets" everything except for the builtin-photos above when we restart the app.
-Make sure navigating back from an activity works correctly (common mistakes: internal data structure not updating correctly when adding/removing, gallery not updating after adding/deleting, memory leak when dealing with image files).
-Document your code!
-Please use git "properly", that is, only store the Android Studio project, not generated files like JARs and class-files.
-In future obligs, we will work on storing the data (with new entries) on the phone, writing tests, and integration with other services on the phone.
-
-### Some Useful Links
-Use e.g the ACTION_GET_CONTENT/ACTION_OPEN_DOCUMENT-intent to let the user choose an existing image -- https://developer.android.com/guide/topics/providers/document-providerLinks to an external site., 
-https://developer.android.com/training/data-storage/shared/documents-files#bitmapLinks to an external site.
-Sharing state throughout an application (one of many possible ways) -- https://developer.android.com/reference/android/app/ApplicationLinks to an external site.
-
-### Optional Functionality (for Oblig 2)
-the main menu should have a switch to allow the user the select "easy" or "hard" mode. Pass the selected mode via the Intent-object to the quiz activity. In the quiz activity, if "hard" mode was selected, the user only has 30 seconds to answer. Otherwise this counts as a wrong answer and the quiz selects a new picture and names automatically after the timeout. Show the remaining time during the quiz!
+### Gradle to run test cases
+Use Gradle either from the command line or through Android Studio's Gradle tool window to install and run the test-cases, so that we can closely observe the steps that are necessary. We can use for example additional command-line options for more information: ./gradlew connectedAndroidTest --info
+Note that the output of --info various between operating systems. Which APKs are used during testing? You can use the open-source tool apktool decode /path/to/the.apk to inspect their contents. Which adb commands does Gradle use to install & run the tests on the phone/emulator? Write your interpretation of the output in the README-file in your repo.
+Document your test cases with results and the interaction with Gradle from question 3 in the README in your repo (HTML or Markdown). That means there should be a detailed description of the steps in the test, the expected result, and which class/method implements the test. Note that the main goal is to have proper test-cases, so it is okay if in the end you have some test-cases that still fail, where you haven't been able to make them "green". In this case, a failing test-case can still serve as documentation.
