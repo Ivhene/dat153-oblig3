@@ -5,6 +5,7 @@ import android.content.ContentResolver;
 import android.net.Uri;
 
 import com.example.quizappassignment1.R;
+import com.example.quizappassignment1.dao.SQLiteManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,6 +20,8 @@ public class Storage extends Application {
     public void onCreate() {
         super.onCreate();
         Storage.optionList = new OptionList();
+        SQLiteManager sqLiteManager = SQLiteManager.instanceOfDatabase(this);
+        sqLiteManager.populateOptionListArray();
         convertImageToUriAndAddToList(R.drawable.kamera, "Camera");
         convertImageToUriAndAddToList(R.drawable.natur, "Nature");
         convertImageToUriAndAddToList(R.drawable.loanlink_logo, "Loanlink");

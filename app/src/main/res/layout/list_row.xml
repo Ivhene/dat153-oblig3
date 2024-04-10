@@ -11,12 +11,14 @@
         android:layout_width="60dp"
         android:layout_height="60dp"/>
 
+    <!-- Color is set for dark mode, since that will be used to view -->
     <TextView
         android:id="@+id/txtAnswer"
         android:layout_toRightOf="@id/image"
         android:layout_marginLeft="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         style="@style/TextAppearance.AppCompat.Title"
         android:text="Answer" />
 

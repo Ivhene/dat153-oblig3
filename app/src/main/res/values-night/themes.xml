@@ -2,6 +2,6 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.QuizAppAssignment1" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:textColorPrimary">@color/white</item> <!-- Set the text color for dark mode -->
     </style>
 </resources>

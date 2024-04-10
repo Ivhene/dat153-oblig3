@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.quizappassignment1.dao.SQLiteManager;
 import com.example.quizappassignment1.model.Option;
 import com.example.quizappassignment1.model.Storage;
 import com.google.android.material.textfield.TextInputEditText;
@@ -75,10 +76,15 @@ public class NewOptionActivity extends AppCompatActivity {
 
                 Option newEntry = new Option(selectedImageUri, editText.getText().toString().trim());
                 Storage.getOptionList().add(newEntry);
-
+                saveToDatabase(newEntry);
                 finish();
             }
         });
+    }
+
+    public void saveToDatabase(Option option) {
+        SQLiteManager sqLiteManager = SQLiteManager.instanceOfDatabase(this);
+        sqLiteManager.addOptionToDatabase(option);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

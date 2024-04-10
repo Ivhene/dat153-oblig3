@@ -34,7 +34,7 @@ public class GalleryActivity extends AppCompatActivity {
         Storage.getOptionList().sort();
 
         listView = relativeLayoutGallery.findViewById(R.id.galleryList);
-        galleryAdapter = new GalleryAdapter(this, R.layout.list_row, Storage.getOptionList().getOptionList());
+        galleryAdapter = new GalleryAdapter(getApplicationContext(), R.layout.list_row, Storage.getOptionList().getOptionList());
         listView.setAdapter(galleryAdapter);
 
         newImage = relativeLayoutGallery.findViewById(R.id.newImage);
@@ -49,22 +49,35 @@ public class GalleryActivity extends AppCompatActivity {
         });
 
         sort = relativeLayoutGallery.findViewById(R.id.sort);
-        sort.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Storage.getOptionList().changeSortType();
-                Storage.getOptionList().sort();
+        if(sort != null) {
+            sort.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Storage.getOptionList().changeSortType();
+                    Storage.getOptionList().sort();
 
-                finish();
-                startActivity(getIntent());
-            }
-        });
+                    finish();
+                    startActivity(getIntent());
+                }
+            });
+        }
+        else {
+            Log.d("ERROR", "HUH");
+        }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        finish();
-        startActivity(getIntent());
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Update the adapter's data set here if needed
+        if (galleryAdapter != null) {
+            galleryAdapter.notifyDataSetChanged();
+        }
     }
 }

@@ -34,14 +34,16 @@ public class GalleryAdapter extends ArrayAdapter<Option> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
+        Option option = getItem(position);
 
-        convertView = layoutInflater.inflate(mResource, parent, false);
+        if(convertView == null)
+            convertView = layoutInflater.inflate(mResource, parent, false);
 
         ImageView imageView = convertView.findViewById(R.id.image);
-        imageView.setImageURI(getItem(position).getImage());
+        imageView.setImageURI(option.getImage());
 
         TextView txtAnswer = convertView.findViewById(R.id.txtAnswer);
-        txtAnswer.setText(getItem(position).getMatchingName());
+        txtAnswer.setText(option.getMatchingName());
 
         // Find the delete button in the current item view
         Button deleteButton = convertView.findViewById(R.id.deleteButton);
@@ -63,4 +65,5 @@ public class GalleryAdapter extends ArrayAdapter<Option> {
 
         return convertView;
     }
+
 }
