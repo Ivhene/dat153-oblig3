@@ -56,8 +56,7 @@ public class GalleryActivity extends AppCompatActivity {
                     Storage.getOptionList().changeSortType();
                     Storage.getOptionList().sort();
 
-                    finish();
-                    startActivity(getIntent());
+                    galleryAdapter.notifyDataSetChanged();
                 }
             });
         }

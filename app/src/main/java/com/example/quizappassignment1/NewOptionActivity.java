@@ -1,40 +1,24 @@
 package com.example.quizappassignment1;
 
-import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import com.example.quizappassignment1.dao.SQLiteManager;
 import com.example.quizappassignment1.model.Option;
 import com.example.quizappassignment1.model.Storage;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class NewOptionActivity extends AppCompatActivity {
 
@@ -74,7 +58,7 @@ public class NewOptionActivity extends AppCompatActivity {
                 if (selectedImageUri == null || editText.getText() == null)
                     return;
 
-                Option newEntry = new Option(selectedImageUri, editText.getText().toString().trim());
+                Option newEntry = new Option(selectedImageUri.toString(), editText.getText().toString().trim());
                 Storage.getOptionList().add(newEntry);
                 saveToDatabase(newEntry);
                 finish();
@@ -83,8 +67,25 @@ public class NewOptionActivity extends AppCompatActivity {
     }
 
     public void saveToDatabase(Option option) {
-        SQLiteManager sqLiteManager = SQLiteManager.instanceOfDatabase(this);
-        sqLiteManager.addOptionToDatabase(option);
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                // task executed in background
+                Storage.optionDatabase.getOptionDAO().addOption(option);
+
+                // once task is finished
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(), "Option added to database", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -105,8 +106,6 @@ public class NewOptionActivity extends AppCompatActivity {
             }
         }
     }
-
-
 
     void imageChooser() {
         Intent i = new Intent();
