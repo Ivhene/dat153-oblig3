@@ -36,21 +36,15 @@ public class QuizActivity extends AppCompatActivity {
 
     TextView statusText;
 
-    int points;
-
-    int attempts;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        this.points = 0;
-        this.attempts = 0;
         this.pointsText = findViewById(R.id.pointsText);
         this.statusText = findViewById(R.id.statusTextView);
 
-        pointsText.setText("Points: " + points + "/" + attempts);
+        pointsText.setText("Points: " + Storage.getScore() + "/" + Storage.getAttempts());
 
         createQuiz();
     }
@@ -59,17 +53,17 @@ public class QuizActivity extends AppCompatActivity {
         // If we answered correct, increase points
         // Update status text
         if(correctIndex == thisIndex) {
-            points++;
+            Storage.setScore(Storage.getScore() + 1);
             statusText.setText("Correct ✅");
         } else {
             statusText.setText("Incorrect ❌");
         }
         // Always increase attempts
-        attempts++;
+        Storage.setAttempts(Storage.getAttempts() + 1);
         // And update points text
-        float percentage = ((float) points / attempts) * 100;
+        float percentage = ((float) Storage.getScore() / Storage.getAttempts()) * 100;
         int roundedPercentage = Math.round(percentage);
-        String text = String.format("Points: %d/%d (%d%%)", points, attempts, roundedPercentage);
+        String text = String.format("Points: %d/%d (%d%%)", Storage.getScore(), Storage.getAttempts(), roundedPercentage);
         pointsText.setText(text);
 
         // Update the buttons etc. (basically refresh view)

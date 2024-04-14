@@ -17,9 +17,15 @@ public class OptionList {
 
     private String sortType;
 
+    private Option correctOption;
+
+    private List<Option> allOptions;
+
     public OptionList() {
         this.optionList = new ArrayList<Option>();
         this.sortType = "alphabetical";
+        this.correctOption = null;
+        this.allOptions = new ArrayList<Option>();
     }
 
     public List<Option> getOptionList() {
@@ -67,10 +73,10 @@ public class OptionList {
         List<Option> copy = optionList;
         Option prev = copy.get(0);
 
-        while(copy.get(0).equals(prev)) {
+        while(copy.get(0).getMatchingName().equals(prev.getMatchingName())) {
             Collections.shuffle(copy);
         }
-
+        correctOption = copy.get(0);
         return copy.get(0);
     }
 
@@ -93,6 +99,7 @@ public class OptionList {
     public List<String> getThreeRandomAnswers(Option correct) {
         List<String> answers = new ArrayList<String>();
         List<Option> copy = optionList;
+        List<Option> options = new ArrayList<Option>();
 
         answers.add(correct.getMatchingName());
 
@@ -114,6 +121,12 @@ public class OptionList {
             }
         }
 
+        options.add(correct);
+        options.add(wrongOption1);
+        options.add(wrongOption2);
+
+        allOptions = options;
+
         answers.add(wrongOption1.getMatchingName());
         answers.add(wrongOption2.getMatchingName());
 
@@ -130,5 +143,17 @@ public class OptionList {
         }
         str.append("}");
         return str.toString();
+    }
+
+    public Option getCorrectOption() {
+        return correctOption;
+    }
+
+    public void setCorrectOption(Option correctOption) {
+        this.correctOption = correctOption;
+    }
+
+    public List<Option> getAllOptions() {
+        return allOptions;
     }
 }

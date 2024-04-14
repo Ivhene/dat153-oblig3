@@ -22,12 +22,16 @@ import java.util.concurrent.Executors;
 public class Storage extends Application {
 
     private static OptionList optionList;
+    private static int score;
+    private static int attempts;
     public static OptionDatabase optionDatabase;
 
     @Override
     public void onCreate() {
         super.onCreate();
         Storage.optionList = new OptionList();
+        score = 0;
+        attempts = 0;
 
         RoomDatabase.Callback callback = new RoomDatabase.Callback() {
             @Override
@@ -86,6 +90,22 @@ public class Storage extends Application {
 
     public static void setOptionList(OptionList optionList) {
         Storage.optionList = optionList;
+    }
+
+    public static int getScore() {
+        return score;
+    }
+
+    public static void setScore(int score) {
+        Storage.score = score;
+    }
+
+    public static int getAttempts() {
+        return attempts;
+    }
+
+    public static void setAttempts(int attempts) {
+        Storage.attempts = attempts;
     }
 
     public void convertImageToUriAndAddToList(int imageResourceId, String name) {
