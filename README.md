@@ -21,9 +21,44 @@ Document your test cases with results and the interaction with Gradle from quest
 
 ## Testing
 ### MainActivityIntegrationTest
+#### Test Case: goToGallery()
+##### Description
+This test verifies that clicking the "Open Gallery" button in MainActivity successfully navigates to GalleryActivity
+
+##### Steps: 
+1. Launch MainActivity
+2. Intercept the intent to start GalleryActivity
+3. Click on the "Open Gallery" button
+4. Check if GalleryActivity is launched
+
+##### Expected Result
+GalleryActivity is launched successfully
+
+##### Implementation
+- Method: goToGallery()
+- Class: MainActivityIntegrationTest
+- File: "MainActivityIntegrationTest.java"
+
+#### Test Case: goToGallery()
+##### Description
+This test verifies that clicking the "Open Gallery" button in MainActivity successfully navigates to GalleryActivity
+
+##### Steps: 
+1. Launch MainActivity
+2. Intercept the intent to start QuizActivity
+3. Click on the "Open Quiz" button
+4. Check if QuizActivity is launched
+
+##### Expected Result
+QuizActivity is launched successfully
+
+##### Implementation
+- Method: goToQuiz()
+- Class: MainActivityIntegrationTest
+- File: "MainActivityIntegrationTest.java"
+
+#### Result
 ![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/18770af6-b324-4094-bb86-4d2023b7c323)
-
-
 
 ### Gradle
 Ran 
