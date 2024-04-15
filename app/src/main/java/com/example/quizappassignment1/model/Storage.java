@@ -29,7 +29,7 @@ public class Storage extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Storage.optionList = new OptionList();
+        Storage.optionList = new OptionList(this);
         score = 0;
         attempts = 0;
 

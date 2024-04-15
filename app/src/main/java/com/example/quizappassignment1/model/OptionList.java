@@ -1,5 +1,10 @@
 package com.example.quizappassignment1.model;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+
 import com.example.quizappassignment1.R;
 
 import java.util.ArrayList;
@@ -11,7 +16,7 @@ import java.util.List;
 /**
  * Class used to store the list of available options
  */
-public class OptionList {
+public class OptionList extends AndroidViewModel {
 
     private List<Option> optionList;
 
@@ -21,7 +26,8 @@ public class OptionList {
 
     private List<Option> allOptions;
 
-    public OptionList() {
+    public OptionList(@NonNull Application application) {
+        super(application);
         this.optionList = new ArrayList<Option>();
         this.sortType = "alphabetical";
         this.correctOption = null;
