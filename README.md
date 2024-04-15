@@ -39,9 +39,9 @@ GalleryActivity is launched successfully
 - Class: MainActivityIntegrationTest
 - File: "MainActivityIntegrationTest.java"
 
-#### Test Case: goToGallery()
+#### Test Case: goToQuiz()
 ##### Description
-This test verifies that clicking the "Open Gallery" button in MainActivity successfully navigates to GalleryActivity
+This test verifies that clicking the "Open Quiz" button in MainActivity successfully navigates to GalleryActivity
 
 ##### Steps: 
 1. Launch MainActivity
@@ -59,6 +59,103 @@ QuizActivity is launched successfully
 
 #### Result
 ![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/18770af6-b324-4094-bb86-4d2023b7c323)
+
+### GalleryActivityIntegrationTest
+#### Test Case: deleteOption()
+##### Description
+This test verifies that clicking delete on an option in the gallery removes it from the application
+
+##### Steps: 
+1. Launch GalleryActivity
+2. Retrieve the original size of the option list
+3. Wait for the gallery list to be loaded
+4. Scroll to the first item in the list
+5. Click on the delete button for the first item.
+6. Verify that the item is removed from the list if the original size was greater than 3.
+7. Verify that the option list size is at least 3 after deletion.
+
+##### Expected Result
+- If the original size of the option list is greater than 3, the item should be removed from the list and the size should have been decreased by 1
+- The option list size should remain at least 3 after deletion 
+
+##### Implementation
+- Method: deleteOption()
+- Class: GalleryActivityIntegrationTest
+- File: "GalleryActivityIntegrationTest.java"
+
+#### Results
+![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/3914fd97-2938-43a3-a6ac-b2378dbeda87)
+
+### NewOptionActivityIntegrationTest
+#### Test Case: addOption()
+##### Description:
+This test verifies the functionality of adding a new option in NewOptionActivity.
+
+##### Steps:
+1. Launch NewOptionActivity.
+2. Check the initial size of the option list.
+3. Stub the intent to return dummy image data.
+4. Click on the button to choose an image.
+5. Replace text in the input field with "Test Name".
+6. Click on the button to add the image.
+7. Verify that the size of the option list has increased by one.
+
+##### Expected Result:
+After adding a new option, the size of the option list should increase by one.
+
+
+##### Implementation:
+- Method: addOption()
+- Class: NewOptionActivityIntegrationTest
+- File: NewOptionActivityIntegrationTest.java
+
+#### Results
+![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/a6a24f36-f47f-45c8-afa4-00788d7460cb)
+
+### QuizActivityIntegrationTest
+#### Test Case: testCorrectAnswer()
+##### Description:
+This test verifies the behavior when the user selects the correct answer in QuizActivity.
+
+##### Steps:
+1. Launch QuizActivity.
+2. Get the initial score.
+3. Find the correct option.
+4. Click on the button corresponding to the correct option.
+5. Verify that the status text shows "Correct".
+6. Verify that the score has increased by 1.
+
+##### Expected Result:
+After selecting the correct answer, the status should display "Correct", and the score should increase by 1.
+
+##### Implementation:
+- Method: testCorrectAnswer()
+- Class: QuizActivityIntegrationTest
+- File: QuizActivityIntegrationTest.java
+
+#### Test Case: testIncorrectAnswer()
+##### Description:
+This test verifies the behavior when the user selects an incorrect answer in QuizActivity.
+
+##### Steps:
+1. Launch QuizActivity.
+2. Get the initial score.
+3. Find the correct option.
+4. Find an incorrect option (any option other than correct).
+5. Click on the button corresponding to the incorrect option.
+6. Verify that the status text shows "Incorrect".
+7. Verify that the score remains the same.
+
+##### Expected Result:
+After selecting an incorrect answer, the status should display "Incorrect", and the score should remain unchanged.
+
+##### Implementation:
+- Method: testIncorrectAnswer()
+- Class: QuizActivityIntegrationTest
+- File: QuizActivityIntegrationTest.java
+
+#### Results
+![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/253b1712-149c-4a2c-9591-6ac7c2ec4186)
 
 ### Gradle
 Ran 
