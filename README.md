@@ -18,3 +18,17 @@ Write your Espresso test classes (in other words, do not use the Espresso Test R
 Use Gradle either from the command line or through Android Studio's Gradle tool window to install and run the test-cases, so that we can closely observe the steps that are necessary. We can use for example additional command-line options for more information: ./gradlew connectedAndroidTest --info
 Note that the output of --info various between operating systems. Which APKs are used during testing? You can use the open-source tool apktool decode /path/to/the.apk to inspect their contents. Which adb commands does Gradle use to install & run the tests on the phone/emulator? Write your interpretation of the output in the README-file in your repo.
 Document your test cases with results and the interaction with Gradle from question 3 in the README in your repo (HTML or Markdown). That means there should be a detailed description of the steps in the test, the expected result, and which class/method implements the test. Note that the main goal is to have proper test-cases, so it is okay if in the end you have some test-cases that still fail, where you haven't been able to make them "green". In this case, a failing test-case can still serve as documentation.
+
+## Testing
+### MainActivityIntegrationTest
+![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/18770af6-b324-4094-bb86-4d2023b7c323)
+![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/3f0db63c-34d4-497a-bbb1-a336edbe8c0a)
+![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/658263c7-526a-46c3-8637-6e12622e4dfe)
+![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/34f1f5bf-3d8c-4520-8399-61a986678a08)
+![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/75c5d82e-cb4e-472c-ba39-7f75a2da0f3d)
+
+
+
+
+
+## APK
