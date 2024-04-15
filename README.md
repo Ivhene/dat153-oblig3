@@ -166,3 +166,10 @@ Ran
 
 
 ## APK
+### Output
+![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/d4859cad-93a2-41d5-bf9f-b4833df7d050)
+
+### Interpretation
+The application is using the app-debug-androidTest.apk to run its tests. 
+
+It first loads up all the resources, then decodes the XML files, including the AndroidManifest.xml with the resources. Then it creates som smaling classes, which is the lowest level of code for Android phones (Assembly for Android), before finally just copying files, libraries and assets
