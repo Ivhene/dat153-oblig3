@@ -22,13 +22,15 @@ Document your test cases with results and the interaction with Gradle from quest
 ## Testing
 ### MainActivityIntegrationTest
 ![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/18770af6-b324-4094-bb86-4d2023b7c323)
-![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/3f0db63c-34d4-497a-bbb1-a336edbe8c0a)
-![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/658263c7-526a-46c3-8637-6e12622e4dfe)
-![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/34f1f5bf-3d8c-4520-8399-61a986678a08)
-![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/75c5d82e-cb4e-472c-ba39-7f75a2da0f3d)
 
 
 
+### Gradle
+Ran 
+```bash
+./gradlew connectedAndroidTest
+```
+![image](https://github.com/Ivhene/dat153-oblig3/assets/89256274/31ad94e8-d0d5-4972-8101-15d68ee373a5)
 
 
 ## APK
