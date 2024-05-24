@@ -11,8 +11,9 @@
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Knapp for å legge til nytt bilde -->
         <Button
             android:id="@+id/newImage"
             android:layout_width="150dp"
@@ -24,6 +25,7 @@
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
+        <!-- Knapp for å sortere bilder -->
         <Button
             android:id="@+id/sort"
             android:layout_width="150dp"
@@ -36,6 +38,7 @@
             android:layout_alignParentRight="true"
             android:textSize="18sp" />
 
+        <!-- Listevisning for galleribilder -->
         <ListView
             android:id="@+id/galleryList"
             android:layout_width="match_parent"

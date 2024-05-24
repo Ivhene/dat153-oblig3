@@ -1,0 +1,199 @@
+.class public Lnet/bytebuddy/dynamic/scaffold/TypeWriter$MethodPool$Record$AccessBridgeWrapper$AccessorBridge;
+.super Lnet/bytebuddy/description/method/MethodDescription$InDefinedShape$AbstractBase;
+.source "TypeWriter.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lnet/bytebuddy/dynamic/scaffold/TypeWriter$MethodPool$Record$AccessBridgeWrapper;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xc
+    name = "AccessorBridge"
+.end annotation
+
+
+# instance fields
+.field private final bridgeTarget:Lnet/bytebuddy/description/method/MethodDescription;
+
+.field private final bridgeType:Lnet/bytebuddy/description/method/MethodDescription$TypeToken;
+
+.field private final instrumentedType:Lnet/bytebuddy/description/type/TypeDescription;
+
+
+# direct methods
+.method protected constructor <init>(Lnet/bytebuddy/description/method/MethodDescription;Lnet/bytebuddy/description/method/MethodDescription$TypeToken;Lnet/bytebuddy/description/type/TypeDescription;)V
+    .locals 0
+    .param p1, "bridgeTarget"    # Lnet/bytebuddy/description/method/MethodDescription;
+    .param p2, "bridgeType"    # Lnet/bytebuddy/description/method/MethodDescription$TypeToken;
+    .param p3, "instrumentedType"    # Lnet/bytebuddy/description/type/TypeDescription;
+
+    .line 1350
+    invoke-direct {p0}, Lnet/bytebuddy/description/method/MethodDescription$InDefinedShape$AbstractBase;-><init>()V
+
+    .line 1351
+    iput-object p1, p0, Lnet/bytebuddy/dynamic/scaffold/TypeWriter$MethodPool$Record$AccessBridgeWrapper$AccessorBridge;->bridgeTarget:Lnet/bytebuddy/description/method/MethodDescription;
+
+    .line 1352
+    iput-object p2, p0, Lnet/bytebuddy/dynamic/scaffold/TypeWriter$MethodPool$Record$AccessBridgeWrapper$AccessorBridge;->bridgeType:Lnet/bytebuddy/description/method/MethodDescription$TypeToken;
+
+    .line 1353
+    iput-object p3, p0, Lnet/bytebuddy/dynamic/scaffold/TypeWriter$MethodPool$Record$AccessBridgeWrapper$AccessorBridge;->instrumentedType:Lnet/bytebuddy/description/type/TypeDescription;
+
+    .line 1354
+    return-void
+.end method
+
+
+# virtual methods
+.method public getDeclaredAnnotations()Lnet/bytebuddy/description/annotation/AnnotationList;
+    .locals 1
+
+    .line 1402
+    new-instance v0, Lnet/bytebuddy/description/annotation/AnnotationList$Empty;
+
+    invoke-direct {v0}, Lnet/bytebuddy/description/annotation/AnnotationList$Empty;-><init>()V
+
+    return-object v0
+.end method
+
+.method public bridge synthetic getDeclaringType()Lnet/bytebuddy/description/type/TypeDefinition;
+    .locals 1
+
+    .line 1326
+    invoke-virtual {p0}, Lnet/bytebuddy/dynamic/scaffold/TypeWriter$MethodPool$Record$AccessBridgeWrapper$AccessorBridge;->getDeclaringType()Lnet/bytebuddy/description/type/TypeDescription;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getDeclaringType()Lnet/bytebuddy/description/type/TypeDescription;
+    .locals 1
+
+    .line 1360
+    iget-object v0, p0, Lnet/bytebuddy/dynamic/scaffold/TypeWriter$MethodPool$Record$AccessBridgeWrapper$AccessorBridge;->instrumentedType:Lnet/bytebuddy/description/type/TypeDescription;
+
+    return-object v0
+.end method
+
+.method public getDefaultValue()Lnet/bytebuddy/description/annotation/AnnotationValue;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lnet/bytebuddy/description/annotation/AnnotationValue<",
+            "**>;"
+        }
+    .end annotation
+
+    .line 1388
+    sget-object v0, Lnet/bytebuddy/description/annotation/AnnotationValue;->UNDEFINED:Lnet/bytebuddy/description/annotation/AnnotationValue;
+
+    return-object v0
+.end method
+
+.method public getExceptionTypes()Lnet/bytebuddy/description/type/TypeList$Generic;
+    .locals 2
+
+    .line 1381
+    iget-object v0, p0, Lnet/bytebuddy/dynamic/scaffold/TypeWriter$MethodPool$Record$AccessBridgeWrapper$AccessorBridge;->bridgeTarget:Lnet/bytebuddy/description/method/MethodDescription;
+
+    invoke-interface {v0}, Lnet/bytebuddy/description/method/MethodDescription;->getExceptionTypes()Lnet/bytebuddy/description/type/TypeList$Generic;
+
+    move-result-object v0
+
+    sget-object v1, Lnet/bytebuddy/description/type/TypeDescription$Generic$Visitor$TypeErasing;->INSTANCE:Lnet/bytebuddy/description/type/TypeDescription$Generic$Visitor$TypeErasing;
+
+    invoke-interface {v0, v1}, Lnet/bytebuddy/description/type/TypeList$Generic;->accept(Lnet/bytebuddy/description/type/TypeDescription$Generic$Visitor;)Lnet/bytebuddy/description/type/TypeList$Generic;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getInternalName()Ljava/lang/String;
+    .locals 1
+
+    .line 1416
+    iget-object v0, p0, Lnet/bytebuddy/dynamic/scaffold/TypeWriter$MethodPool$Record$AccessBridgeWrapper$AccessorBridge;->bridgeTarget:Lnet/bytebuddy/description/method/MethodDescription;
+
+    invoke-interface {v0}, Lnet/bytebuddy/description/method/MethodDescription;->getInternalName()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getModifiers()I
+    .locals 1
+
+    .line 1409
+    iget-object v0, p0, Lnet/bytebuddy/dynamic/scaffold/TypeWriter$MethodPool$Record$AccessBridgeWrapper$AccessorBridge;->bridgeTarget:Lnet/bytebuddy/description/method/MethodDescription;
+
+    invoke-interface {v0}, Lnet/bytebuddy/description/method/MethodDescription;->getModifiers()I
+
+    move-result v0
+
+    or-int/lit8 v0, v0, 0x40
+
+    or-int/lit16 v0, v0, 0x1000
+
+    and-int/lit16 v0, v0, -0x501
+
+    return v0
+.end method
+
+.method public getParameters()Lnet/bytebuddy/description/method/ParameterList;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lnet/bytebuddy/description/method/ParameterList<",
+            "Lnet/bytebuddy/description/method/ParameterDescription$InDefinedShape;",
+            ">;"
+        }
+    .end annotation
+
+    .line 1367
+    new-instance v0, Lnet/bytebuddy/description/method/ParameterList$Explicit$ForTypes;
+
+    iget-object v1, p0, Lnet/bytebuddy/dynamic/scaffold/TypeWriter$MethodPool$Record$AccessBridgeWrapper$AccessorBridge;->bridgeType:Lnet/bytebuddy/description/method/MethodDescription$TypeToken;
+
+    invoke-virtual {v1}, Lnet/bytebuddy/description/method/MethodDescription$TypeToken;->getParameterTypes()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-direct {v0, p0, v1}, Lnet/bytebuddy/description/method/ParameterList$Explicit$ForTypes;-><init>(Lnet/bytebuddy/description/method/MethodDescription$InDefinedShape;Ljava/util/List;)V
+
+    return-object v0
+.end method
+
+.method public getReturnType()Lnet/bytebuddy/description/type/TypeDescription$Generic;
+    .locals 1
+
+    .line 1374
+    iget-object v0, p0, Lnet/bytebuddy/dynamic/scaffold/TypeWriter$MethodPool$Record$AccessBridgeWrapper$AccessorBridge;->bridgeType:Lnet/bytebuddy/description/method/MethodDescription$TypeToken;
+
+    invoke-virtual {v0}, Lnet/bytebuddy/description/method/MethodDescription$TypeToken;->getReturnType()Lnet/bytebuddy/description/type/TypeDescription;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lnet/bytebuddy/description/type/TypeDescription;->asGenericType()Lnet/bytebuddy/description/type/TypeDescription$Generic;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getTypeVariables()Lnet/bytebuddy/description/type/TypeList$Generic;
+    .locals 1
+
+    .line 1395
+    new-instance v0, Lnet/bytebuddy/description/type/TypeList$Generic$Empty;
+
+    invoke-direct {v0}, Lnet/bytebuddy/description/type/TypeList$Generic$Empty;-><init>()V
+
+    return-object v0
+.end method

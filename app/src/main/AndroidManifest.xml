@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- XML declaration specifying version and encoding type -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- Root element of the Android manifest file with namespace declarations for Android and tools -->
 
+    <!-- Allows backup of the application's data -->
+    <!-- Specifies rules for data extraction for backups -->
+    <!-- Specifies rules for full backup content -->
+    <!-- Application icon -->
+    <!-- Application label (name) -->
+    <!-- Application round icon for devices that support round icons -->
+    <!-- Indicates whether the application supports RTL (Right-to-Left) layouts -->
+    <!-- Specifies the theme for the application -->
+    <!-- Specifies the target API level for linting and other tools -->
+    <!-- Specifies a custom Application class for the app -->
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,43 +26,63 @@
         android:theme="@style/Base.Theme.QuizAppAssignment1"
         tools:targetApi="31"
         android:name="com.example.quizappassignment1.model.Storage">
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
+            <!-- MainActivity declaration, setting it to be exported (accessible to other apps) -->
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <!-- Main action indicating the entry point of the application -->
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <!-- Category indicating this activity can be launched from the home screen -->
             </intent-filter>
         </activity>
+
         <activity
             android:name=".GalleryActivity"
             android:exported="true">
+            <!-- GalleryActivity declaration, setting it to be exported -->
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <!-- Main action for GalleryActivity -->
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <!-- Category indicating GalleryActivity can be launched from the home screen -->
             </intent-filter>
         </activity>
+
         <activity
             android:name=".QuizActivity"
             android:exported="true">
+            <!-- QuizActivity declaration, setting it to be exported -->
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <!-- Main action for QuizActivity -->
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <!-- Category indicating QuizActivity can be launched from the home screen -->
             </intent-filter>
         </activity>
+
         <activity
             android:name=".NewOptionActivity"
             android:exported="true">
+            <!-- NewOptionActivity declaration, setting it to be exported -->
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <!-- Main action for NewOptionActivity -->
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <!-- Category indicating NewOptionActivity can be launched from the home screen -->
             </intent-filter>
         </activity>
-    </application>
 
+    </application>
+    <!-- End of the application element -->
 </manifest>
+    <!-- End of the manifest element -->

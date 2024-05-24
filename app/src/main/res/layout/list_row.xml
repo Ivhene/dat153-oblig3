@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:padding="16dp">
 
+    <!-- ImageView for displaying image -->
     <ImageView
         android:id="@+id/image"
         android:src="@color/black"
         android:layout_width="60dp"
-        android:layout_height="60dp"/>
+        android:layout_height="60dp" />
 
+    <!-- TextView for displaying answer -->
     <!-- Color is set for dark mode, since that will be used to view -->
     <TextView
         android:id="@+id/txtAnswer"
@@ -22,10 +24,12 @@
         style="@style/TextAppearance.AppCompat.Title"
         android:text="Answer" />
 
+    <!-- Button for deleting option -->
     <Button
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:text="Delete" />
+
 </RelativeLayout>

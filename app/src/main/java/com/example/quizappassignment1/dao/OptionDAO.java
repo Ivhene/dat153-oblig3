@@ -12,12 +12,12 @@ import java.util.List;
 @Dao
 public interface OptionDAO {
 
-    @Upsert // Update and insert in one
-    public void addOption(Option option);
+    @Upsert // Oppdater og sett inn på én gang
+    public void addOption(Option option); // Metode for å legge til en opsjon i databasen
 
-    @Delete
+    @Delete // Metode for å slette en opsjon fra databasen
     public void deleteOption(Option option);
 
-    @Query("SELECT * FROM Options")
+    @Query("SELECT * FROM Options") // SQL-query for å hente alle opsjoner fra databasen
     public List<Option> getOptions();
 }

@@ -13,6 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- TextView for displaying points -->
         <TextView
             android:id="@+id/pointsText"
             android:layout_width="wrap_content"
@@ -21,18 +22,19 @@
             android:layout_marginTop="25dp"
             android:layout_marginRight="25dp"
             android:textSize="14pt"
-            android:text="Points: 0"
-            />
+            android:text="Points: 0" />
 
+        <!-- ImageView for displaying quiz image -->
         <ImageView
             android:id="@+id/quizImage"
-            android:src="@color/black"
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="75dp"
-            android:contentDescription="Image for quiz" />
+            android:contentDescription="Image for quiz"
+            android:src="@color/black" />
 
+        <!-- Buttons for quiz options -->
         <Button
             android:id="@+id/btnOption1"
             android:layout_width="250dp"
@@ -41,7 +43,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:textSize="16sp"
-            android:text="Option 1"/>
+            android:text="Option 1" />
         <Button
             android:id="@+id/btnOption2"
             android:layout_width="250dp"
@@ -50,8 +52,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             android:textSize="16sp"
-            android:text="Option 2"/>
-
+            android:text="Option 2" />
         <Button
             android:id="@+id/btnOption3"
             android:layout_width="250dp"
@@ -60,8 +61,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             android:textSize="16sp"
-            android:text="Option 3"/>
+            android:text="Option 3" />
 
+        <!-- TextView for displaying quiz status (correct/incorrect) -->
         <TextView
             android:id="@+id/statusTextView"
             android:layout_width="wrap_content"

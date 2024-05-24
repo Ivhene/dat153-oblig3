@@ -15,24 +15,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/openQuiz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Quiz"
-        />
+        <!-- Knapp for å åpne quiz -->
+        <Button
+            android:id="@+id/openQuiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Quiz" />
 
-    <Button
-        android:id="@+id/openGallery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/openQuiz"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Gallery"
-        />
+        <!-- Knapp for å åpne galleri -->
+        <Button
+            android:id="@+id/openGallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/openQuiz"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Gallery" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

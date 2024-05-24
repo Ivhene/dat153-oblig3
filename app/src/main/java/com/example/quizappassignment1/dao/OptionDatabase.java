@@ -7,5 +7,5 @@ import com.example.quizappassignment1.model.Option;
 
 @Database(entities = {Option.class}, version = 1)
 public abstract class OptionDatabase extends RoomDatabase {
-    public abstract OptionDAO getOptionDAO();
+    public abstract OptionDAO getOptionDAO(); // Metode for å få tilgang til OptionDAO-objektet
 }
